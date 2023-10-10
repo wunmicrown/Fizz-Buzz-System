@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADING SYSTEM</title>
+    <link rel="icon" href="./gradeImage1.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="centerDiv">
+        <div class="card">
+            <marquee behavior="fast" direction="right">
+                <p>Welcome <span> to the official Grading System</span></p>
+            </marquee>
+            <h1>Grading System</h1>
+            <input type="number" placeholder="Enter your score" id="inputValue">
+            <button onclick="gradeSystem()">Check</button>
+            <div id="Result"></div>
+        </div>
+        <!-- <div class="animation"></div> -->
+    </div>
+</body>
+<script>
+    var songFail = new Audio('audio/fail-144746.mp3');
+    var songpass = new Audio('audio/Are-you-playing.mp3')
+    var songAverage = new Audio('audio/sorry.mp3')
+    var songcredit = new Audio('audio/There-Is-God-O.mp3')
+    var songgood = new Audio('audio/I-want-to-be-President.mp3')
+    var songE = new Audio('audio/Carry-Me-Dey-Go.mp3')
+    var songvalid = new Audio('audio/buzzer-or-wrong-answer-20582 (1).mp3')
+    var songinvalid = new Audio('audio/wrong-answer-129254.mp3')
+    
+    function gradeSystem() {
+        var scoree = document.getElementById("inputValue").value;
+        if (scoree == "") {
+            Result.innerHTML ="Enter a valid number";
+            Result.style.color ='red';
+            songvalid.play();
+        }
+        else if (scoree >= 0 && scoree < 40) {
+            Result.innerHTML = "F-FAIL😔";
+            Result.style.color ='red';
+            songFail.play();
+        }
+        else if (scoree >= 40 && scoree < 45) {
+            Result.innerHTML = " P-PASS 😣";
+            Result.style.color ='red ';
+            songpass.play()
+        }
+        else if (scoree >= 45 && scoree < 50) {
+            Result.innerHTML = "D-AVERAGE 😁";
+            Result.style.color ='chocolate';
+            songAverage.play();
+
+        }
+        else if (scoree >= 50 && scoree < 59) {
+            Result.innerHTML = " C-CREDIT 🤔";
+            Result.style.color ='lime';
+            songcredit.play();
+        }
+        else if (scoree >= 60 && scoree < 69) {
+            Result.innerHTML = "B-GOOD ☺";
+            songgood.play();
+            Result.style.color ='Green';
+        }
+        else if (scoree >= 70 && scoree <= 100) {
+            Result.innerHTML = "A-EXCELLENT 😀 ";
+            songE.play();
+            Result.style.color ='Green';
+
+        } 
+        else {
+            Result.innerHTML = "INVALID";
+            songinvalid.play();
+            Result.style.color ='red ';
+        }
+
+    }
+</script>
+
+</html>
